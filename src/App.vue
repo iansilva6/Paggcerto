@@ -45,6 +45,8 @@
     import HorizontalStepper from 'vue-stepper';
     import StepOne from './components/StepOne.vue';
     import StepTwo from './components/StepTwo.vue';
+    import StepThree from './components/StepThree.vue';
+    import StepFourth from './components/StepFourth.vue';
     const teamUrl = 'https://github.com/PygmySlowLoris';
     const repoUrl = 'https://github.com/PygmySlowLoris/vue-stepper';
     export default {
@@ -78,7 +80,7 @@
                         name: 'third',
                         title: 'Informações de Pagamento',
                         subtitle: '',
-                        component: StepOne,
+                        component: StepThree,
                         completed: false
                     },
                     {
@@ -86,7 +88,7 @@
                         name: 'fourth',
                         title: 'Termos de Uso',
                         subtitle: '',
-                        component: StepOne,
+                        component: StepFourth,
                         completed: false
                     }
                 ],

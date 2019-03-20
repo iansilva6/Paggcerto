@@ -2,7 +2,7 @@
     <div style="padding: 2rem 3rem; text-align: left;">
         <div>
             <div class="field">
-                <label class="label">Tipo de Pessoa</label>
+                <label class="label">Você é?</label>
                 <div class="control">
                     <p>
                         <label class="radio">
@@ -17,25 +17,27 @@
                 </div>
             </div>
         </div>
-        <div class="pessoafisica-panel">
-            <div class="field">
-                <label class="label">Nome Completo</label>
-                <div class="control">
-                    <input :class="['input', ($v.form.nomeCompleto.$error) ? 'is-danger' : '']" type="text" placeholder=""
-                       v-model="form.nomeCompleto">
+        <div id="pessoafisica" class="panel">
+            <div class="columns">
+                <div class="field column is-8">
+                    <label class="label">Nome Completo</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.nomeCompleto.$error) ? 'is-danger' : '']" type="text" placeholder=""
+                           v-model="form.nomeCompleto">
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Sexo</label>
-                <div class="control">
-                    <label class="radio">
-                        <input :class="['radio', ($v.form.masculino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="masculino">
-                        Masculino
-                    </label>
-                    <label class="radio">
-                        <input :class="['radio', ($v.form.feminino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="feminino">
-                        Feminino
-                    </label>
+                <div class="field column is-4">
+                    <label class="label">Sexo</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input :class="['radio', ($v.form.masculino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="masculino">
+                            Masculino
+                        </label>
+                        <label class="radio">
+                            <input :class="['radio', ($v.form.feminino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="feminino">
+                            Feminino
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="columns">
@@ -95,11 +97,122 @@
                 </div>
             </div>
         </div>
+        <div id="pessoajuridica" class="panel">
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">Razão Social</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.razaoSocial.$error) ? 'is-danger' : '']" type="text" placeholder=""
+                           v-model="form.razaoSocial">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Nome Fantasia</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.nomeFantasia.$error) ? 'is-danger' : '']" type="text" placeholder=""
+                           v-model="form.nomeFantasia">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">CNPJ</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.cnpj.$error) ? 'is-danger' : '']" type="text" placeholder="00.000.000/0000-00" v-mask="'##.###.###/##-##'" v-model="form.cnpj">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Tipo da Empresa</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.tipoEmpresa.$error) ? 'is-danger' : '']" type="text" placeholder=""
+                           v-model="form.tipoEmpresa">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">Telefone Fixo</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.fixo.$error) ? 'is-danger' : '']" type="text" placeholder="(99) 9999-9999" v-mask="'(##) ####-####'" v-model="form.fixo">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Celular</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.celular.$error) ? 'is-danger' : '']" type="text" placeholder="(99) 99999-9999" v-mask="'(##) ####-####', '(##) #####-####'" v-model="form.celular">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">CEP</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.cep.$error) ? 'is-danger' : '']" type="text" placeholder="00000-000" v-mask="'#####-###'" v-model="form.cep">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Número</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.numero.$error) ? 'is-danger' : '']" type="text" placeholder="" v-model="form.numero">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">Complemento</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.complemento.$error) ? 'is-danger' : '']" type="text" placeholder="" v-model="form.complemento">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Ramo de Atividade</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.ramo.$error) ? 'is-danger' : '']" type="text" placeholder="" v-model="form.ramo">
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-8">
+                    <label class="label">Nome do Administrador</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.nomeAdm.$error) ? 'is-danger' : '']" type="text" placeholder=""
+                           v-model="form.nomeAdm">
+                    </div>
+                </div>
+                <div class="field column is-4">
+                    <label class="label">Sexo</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input :class="['radio', ($v.form.masculino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="masculino">
+                            Masculino
+                        </label>
+                        <label class="radio">
+                            <input :class="['radio', ($v.form.feminino.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="feminino">
+                            Feminino
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="field column is-6">
+                    <label class="label">CPF do Administrador</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.cpfAdm.$error) ? 'is-danger' : '']" type="text" placeholder="000.000.000-00" v-mask="'###.###.###-##'" v-model="form.cpfAdm">
+                    </div>
+                </div>
+                <div class="field column is-6">
+                    <label class="label">Data de Nascimento do Administrador</label>
+                    <div class="control">
+                        <input :class="['input', ($v.form.dataNascimentoAdm.$error) ? 'is-danger' : '']" type="text" placeholder="__/__/____" v-mask="'##/##/####'" v-model="form.dataNascimentoAdm">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <style lang="scss">
-    .pessoafisica-panel {
+    .panel {
         padding: 30px 0px;
     }
 </style>
@@ -128,6 +241,14 @@
                     numero: '',
                     complemento: '',
                     ramo: '',
+
+                    razaoSocial: '',
+                    nomeFantasia: '',
+                    cnpj: '',
+                    tipoEmpresa: '',
+                    nomeAdm: '',
+                    cpfAdm: '',
+                    dataNascimentoAdm: '',
                 }
             }
         },
@@ -140,34 +261,55 @@
 
                 },
                 nomeCompleto: {
-                    required
+                    //required
                 },
                 cpf: {
-                    required
+                    //required
                 },
                 masculino: {
                 },
                 feminino: {
                 },
                 dataNascimento: {
-                    required
+                    //required
                 },
                 celular: {
-                    required
+                    //required
                 },
                 fixo: {
                 },
                 cep: {
-                    required,
+                    //required,
                 },
                 numero: {
-                    required,
+                    //required,
                 },
                 complemento: {
-                    required,
+                    //required,
                 },
                 ramo: {
-                    required,
+                    //required,
+                },
+                razaoSocial: {
+                    //required,
+                },
+                nomeFantasia: {
+                    //required,
+                },
+                cnpj: {
+                    //required,
+                },
+                tipoEmpresa: {
+                    //required,
+                },
+                nomeAdm: {
+                    //required,
+                },
+                cpfAdm: {
+                    //required,
+                },
+                dataNascimentoAdm: {
+                    //required,
                 },
             }
         },
