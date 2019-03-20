@@ -5,12 +5,12 @@
 
         <!--Example Elements-->
         <section class="hero">
-            <div class="hero-body" style="padding: 5rem 0">
+            <div class="hero-body" style="padding: 3rem 0">
                 <div class="container">
                     <div class="columns is-vcentered">
                         <div class="column is-12" style="display: flex; align-items: center;">
                             <div class="alinhar">
-                                <img width="200px" class="alinhar" src="./assets/marca.png">
+                                <img width="260px" class="alinhar" src="./assets/marca.png">
                             </div>
                         </div>
                     </div>
@@ -58,15 +58,15 @@
                 teamUrl: teamUrl,
                 demoSteps: [
                     {
-                        icon: 'stars',
+                        icon: 'account_circle',
                         name: 'first',
-                        title: 'Informações Básicas',
+                        title: 'Criar Conta',
                         subtitle: '',
                         component: StepOne,
                         completed: false
                     },
                     {
-                        icon: 'account_circle',
+                        icon: 'business_center',
                         name: 'second',
                         title: 'Dados do Usuário',
                         subtitle: '',
@@ -74,10 +74,18 @@
                         completed: false
                     },
                     {
-                        icon: 'announcement',
+                        icon: 'attach_money',
                         name: 'third',
-                        title: 'Sample title 3',
-                        subtitle: 'Subtitle sample',
+                        title: 'Informações de Pagamento',
+                        subtitle: '',
+                        component: StepOne,
+                        completed: false
+                    },
+                    {
+                        icon: 'border_color',
+                        name: 'fourth',
+                        title: 'Termos de Uso',
+                        subtitle: '',
                         component: StepOne,
                         completed: false
                     }
