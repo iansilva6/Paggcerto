@@ -1,41 +1,78 @@
 <template>
-    <div class="card" style="margin: 3rem">
-        <header class="card-header">
-            <p class="card-header-title">
-                Component
-            </p>
-            <a href="#" class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </a>
-        </header>
-        <div class="card-content">
-            <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    <div style="padding: 2rem 3rem; text-align: left;">
+        <div class="field">
+            <label class="label">Tipo de Pessoa</label>
+            <div class="control">
+                <p>
+                    <label class="radio">
+                        <input type="radio" name="pessoa">
+                        Pessoa Física
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="pessoa">
+                        Pessoa Jurídica
+                    </label>
+                </p>
             </div>
         </div>
-        <footer class="card-footer">
-            <a class="card-footer-item">Save</a>
-            <a class="card-footer-item">Edit</a>
-            <a class="card-footer-item" @click="canContinue">Can Continue</a>
-        </footer>
     </div>
 </template>
 
 <script>
+    import {validationMixin} from 'vuelidate'
+    import {required, email} from 'vuelidate/lib/validators'
     export default {
-        props: ['currentStep'],
-        methods: {
-          canContinue() {
-              this.$emit('can-continue', {value: true});
-          }
+        props: ['clickedNext', 'currentStep'],
+        mixins: [validationMixin],
+        data() {
+            return {
+                form: {
+                    demoEmail: '',
+                    message: ''
+                }
+            }
+        },
+        validations: {
+            form: {
+                username: {
+                    required
+                },
+                demoEmail: {
+                    required,
+                    email
+                },
+                message: {
+                    required
+                }
+            }
+        },
+        watch: {
+            $v: {
+                handler: function (val) {
+                    if(!val.$invalid) {
+                        this.$emit('can-continue', {value: true});
+                    } else {
+                        this.$emit('can-continue', {value: false});
+                        setTimeout(()=> {
+                            this.$emit('change-next', {nextBtnValue: false});
+                        }, 3000)
+                    }
+                },
+                deep: true
+            },
+            clickedNext(val) {
+                console.log(val);
+                if(val === true) {
+                    this.$v.form.$touch();
+                }
+            }
         },
         mounted() {
-//            this.$emit('can-continue', {value: true})
+            if(!this.$v.$invalid) {
+                this.$emit('can-continue', {value: true});
+            } else {
+                this.$emit('can-continue', {value: false});
+            }
         }
     }
 </script>
