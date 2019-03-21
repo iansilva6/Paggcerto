@@ -18,6 +18,7 @@
                     32 dias
                 </label>
             </div>
+            <p v-if="$v.form.repasse.$error" class="help is-danger">Campo obrigatório</p>
         </div>
         <div class="columns">
             <div class="field column is-6">
@@ -28,6 +29,7 @@
                     placeholder=""
                     v-model="form.banco">
                 </div>
+                <p v-if="$v.form.banco.$error" class="help is-danger">Campo obrigatório</p>
             </div>
             <div class="field column is-6">
                 <label class="label">Tipo de Conta</label>
@@ -47,6 +49,7 @@
                         Conta Poupança
                     </label>
                 </div>
+                <p v-if="$v.form.tipoConta.$error" class="help is-danger">Campo obrigatório</p>
             </div>
         </div>
         <div class="columns">
@@ -59,6 +62,7 @@
                     v-mask="['###-#', '####-#', '#####-#', '######-#']" 
                     v-model="form.agencia">
                 </div>
+                <p v-if="$v.form.agencia.$error" class="help is-danger">Campo obrigatório</p>
             </div>
             <div class="field column is-6">
                 <label class="label">N. da Conta</label>
@@ -69,6 +73,7 @@
                     v-mask="['###-#', '####-#', '#####-#', '######-#']" 
                     v-model="form.conta">
                 </div>
+                <p v-if="$v.form.conta.$error" class="help is-danger">Campo obrigatório</p>
             </div>
         </div>
         <div class="columns">
@@ -119,19 +124,19 @@
         validations: {
             form: {
                 repasse: {
-                    //required,
+                    required,
                 },
                 banco: {
-                    //required,
+                    required,
                 },
                 tipoConta: {
-                    //required,
+                    required,
                 },
                 agencia: {
-                    //required,
+                    required,
                 },
                 conta: {
-                    //required,
+                    required,
                 },
                 titular: {
                     //required,

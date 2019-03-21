@@ -19,9 +19,10 @@
                         Pessoa Jurídica
                     </label>
                 </div>
+                <p v-if="$v.form.tipoPessoa.$error" class="help is-danger">Campo obrigatório</p>
             </div>
         </div>
-        <div id="pessoafisica" class="panel">
+        <div class="panel" v-show="form.tipoPessoa === 'fisica'">
             <div class="columns">
                 <div class="field column is-8">
                     <label class="label">Nome Completo</label>
@@ -138,7 +139,7 @@
                 </div>
             </div>
         </div>
-        <div id="pessoajuridica" class="panel">
+        <div class="panel" v-show="form.tipoPessoa === 'juridica'">
             <div class="columns">
                 <div class="field column is-6">
                     <label class="label">Razão Social</label>
@@ -341,7 +342,7 @@
         validations: {
             form: {
                 tipoPessoa: {
-
+                    required
                 },
                 nomeCompleto: {
                     //required
