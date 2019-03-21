@@ -21,4 +21,4 @@ Esta aplicação utiliza algumas bibliotecas:
 * [Bulma](http://bulma.io) - Para estilizar botões, inputs, textos e etc.
 * [Vue Stepper](https://github.com/PygmySlowLoris/vue-stepper) - Para criar o formulário passo a passo.
 * [Vuelidate](https://vuelidate.netlify.com/) - Para fazer a validação dos inputs.
-* [Vue The Mask](https://vuejs-tips.github.io/vue-the-mask/) - Para criar mascaras nos inputs.
+* [Vue The Mask](https://vuejs-tips.github.io/vue-the-mask/) - Máscara para os formulários darem uma melhor experiência ao usuário.

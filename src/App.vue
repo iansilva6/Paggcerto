@@ -23,8 +23,13 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
-                        <horizontal-stepper :steps="demoSteps" :locale="pt" @completed-step="completeStep" :top-buttons="true"
-                                            @active-step="isStepActive" @stepper-finished="alert"></horizontal-stepper>
+                        <horizontal-stepper 
+                        :steps="demoSteps" 
+                        :locale="'pt'" 
+                        @completed-step="completeStep" 
+                        :top-buttons="true"
+                        @active-step="isStepActive" 
+                        @stepper-finished="submit"></horizontal-stepper>
                     </div>
                 </div>
             </div>
@@ -118,8 +123,9 @@
                 })
             },
             /*Imprime o objeto user no console, com todos os dados armazenados durante o preenchimento do fomrmulário.*/
-            alert(payload) {
-                console.log(store.state.user)
+            submit(payload) {
+                console.log(store.state.user);
+                alert('Verificar o console para ler os dados que foram armazenados');
             }
         }
     }

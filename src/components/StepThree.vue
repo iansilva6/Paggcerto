@@ -122,7 +122,7 @@
               agencia: 'user.agencia',
               conta: 'user.conta',
               titular: 'user.nomeCompleto',
-              cadastroTitular: 'user.cadastroTitular',
+              cadastroTitular: 'user.cpf',
             }),
         },
         //Define os campos obrigatórios

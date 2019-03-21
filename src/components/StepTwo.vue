@@ -339,6 +339,7 @@
               nomeFantasia: 'user.nomeFantasia',
               cnpj: 'user.cnpj',
               tipoEmpresa: 'user.tipoEmpresa',
+              
               nomeAdm: 'user.nomeCompleto',
               cpfAdm: 'user.cpf',
               dataNascimentoAdm: 'user.dataNascimento',
