@@ -6,6 +6,10 @@ import { getField, updateField } from 'vuex-map-fields';
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
+  /*
+    Criando o state para armazenar os dados enquanto o usuário vai preenchendo o formulário.
+  */
+
   state: {
     user: { 
       //Dados do Usuário

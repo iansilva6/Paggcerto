@@ -58,6 +58,7 @@
         data() {
             return {}
         },
+        //Pegar os valores dos inputs e atualiza no store
         computed: {
             ...mapFields({
               comoConheceu: 'user.comoConheceu',
@@ -66,6 +67,7 @@
               senha: 'user.password',
             }),
         },
+        //Define os campos obrigatórios
         validations: {
             comoConheceu: {
                 required
@@ -82,6 +84,7 @@
             }
         },
         methods: {},
+        //Confere se os dados obrigatórios estão preenchidos
         watch: {
             $v: {
                 handler: function (val) {

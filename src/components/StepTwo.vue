@@ -320,6 +320,7 @@
         data() {
             return {}
         },
+        //Pegar os valores dos inputs e atualiza no store
         computed: {
             ...mapFields({
               tipoPessoa: 'user.tipoPessoa',
@@ -343,6 +344,7 @@
               dataNascimentoAdm: 'user.dataNascimento',
             }),
         },
+        //Define os campos obrigatórios
         validations: {
             tipoPessoa: {
                 required
@@ -397,7 +399,7 @@
                 //required,
             },
         },
-
+        //Confere se os dados obrigatórios estão preenchidos
         watch: {
             $v: {
                 handler: function (val) {

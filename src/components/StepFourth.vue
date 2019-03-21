@@ -24,6 +24,7 @@
         props: ['currentStep'],
         methods: {
           canContinue() {
+            //Checa se o usuário aceitou os termos de uso
             if(this.$refs.rolesSelected.checked == true) {
                 this.$emit('can-continue', {value: true});
             } else {

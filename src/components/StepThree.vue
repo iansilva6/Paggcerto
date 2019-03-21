@@ -113,6 +113,7 @@
         data() {
             return {}
         },
+        //Pegar os valores dos inputs e atualiza no store
         computed: {
             ...mapFields({
               repasse: 'user.repasse',
@@ -124,6 +125,7 @@
               cadastroTitular: 'user.cadastroTitular',
             }),
         },
+        //Define os campos obrigatórios
         validations: {
             repasse: {
                 required,
@@ -147,6 +149,7 @@
                 //required,
             },
         },
+        //Confere se os dados obrigatórios estão preenchidos
         watch: {
             $v: {
                 handler: function (val) {

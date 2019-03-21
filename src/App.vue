@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <!--Example dependecies-->
+        <!--Bulma CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
 
-        <!--Example Elements-->
+        <!--Header da Aplicação-->
         <section class="hero">
             <div class="hero-body" style="padding: 3rem 0">
                 <div class="container">
@@ -17,7 +17,8 @@
                 </div>
             </div>
         </section>
-
+        
+        <!--Step by Step - Onde passará os componentes de cada passo do formulário-->
         <section class="section" style="padding-top: .5rem">
             <div class="container">
                 <div class="columns">
@@ -28,7 +29,8 @@
                 </div>
             </div>
         </section>
-
+        
+        <!--Footer da Aplicação-->
         <footer class="footer">
             <div class="container">
                 <div class="content has-text-centered">
@@ -48,8 +50,7 @@
     import StepTwo from './components/StepTwo.vue';
     import StepThree from './components/StepThree.vue';
     import StepFourth from './components/StepFourth.vue';
-    const teamUrl = 'https://github.com/PygmySlowLoris';
-    const repoUrl = 'https://github.com/PygmySlowLoris/vue-stepper';
+
     export default {
         name: 'app',
         store,
@@ -58,8 +59,7 @@
         },
         data(){
             return {
-                repoUrl: repoUrl,
-                teamUrl: teamUrl,
+                //Config do framework para criar o Step by Step
                 demoSteps: [
                     {
                         icon: 'account_circle',
@@ -99,6 +99,7 @@
         },
         computed: {},
         methods: {
+            //Checa se os campos obrigatórios estão preenchidos antes de avançar
             completeStep(payload) {
                 this.demoSteps.forEach((step) => {
                     if (step.name === payload.name) {
@@ -106,6 +107,7 @@
                     }
                 })
             },
+            //Consulta o step atual
             isStepActive(payload) {
                 this.demoSteps.forEach((step) => {
                     if (step.name === payload.name) {
@@ -115,6 +117,7 @@
                     }
                 })
             },
+            /*Imprime o objeto user no console, com todos os dados armazenados durante o preenchimento do fomrmulário.*/
             alert(payload) {
                 console.log(store.state.user)
             }
@@ -122,7 +125,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
     #app {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -170,10 +173,12 @@
     .box.formated .content {
         padding: 1rem 2rem;
     }
-    i.top-left {
-        position: absolute;
-        left: 1.5rem;
-        top: 0.8rem;
+    i {
+        .top-left {
+            position: absolute;
+            left: 1.5rem;
+            top: 0.8rem;
+        }
     }
     .vertical-separator {
         display: flex;

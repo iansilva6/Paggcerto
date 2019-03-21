@@ -1,21 +1,24 @@
-# paggcerto
+# Paggcerto
 
-> A Vue.js project
+> Formulário passo a passo desenvolvido em Vue.js
 
-## Build Setup
+## Rodando a aplicação
 
-``` bash
-# install dependencies
+``` sh
+# instalar as dependencias
 npm install
 
-# serve with hot reload at localhost:8080
+# o server irá rodar em localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Bibliotecas utilizadas
+
+Esta aplicação utiliza algumas bibliotecas:
+
+* [Vue JS](https://vuejs.org/) - Para construir a aplicação.
+* [Vuex](https://vuex.vuejs.org) - Usado para salvar os dados e compartilhar entre os componentes.
+* [Bulma](http://bulma.io) - Para estilizar botões, inputs, textos e etc.
+* [Vue Stepper](https://github.com/PygmySlowLoris/vue-stepper) - Para criar o formulário passo a passo.
+* [Vuelidate](https://vuelidate.netlify.com/) - Para fazer a validação dos inputs.
+* [Vue The Mask](https://vuejs-tips.github.io/vue-the-mask/) - Para criar mascaras nos inputs.
