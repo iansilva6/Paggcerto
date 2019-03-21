@@ -42,6 +42,7 @@
 </template>
 
 <script>
+    import { store } from './store/store';
     import HorizontalStepper from 'vue-stepper';
     import StepOne from './components/StepOne.vue';
     import StepTwo from './components/StepTwo.vue';
@@ -51,6 +52,7 @@
     const repoUrl = 'https://github.com/PygmySlowLoris/vue-stepper';
     export default {
         name: 'app',
+        store,
         components: {
             HorizontalStepper
         },
@@ -114,7 +116,7 @@
                 })
             },
             alert(payload) {
-                alert('Formulário preenchido')
+                console.log(store.state.user)
             }
         }
     }

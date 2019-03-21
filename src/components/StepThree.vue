@@ -4,95 +4,95 @@
             <label class="label">Quantos dias você deseja receber o repasse?</label>
             <div class="control">
                 <label for="2dias" class="radio">
-                    <input :class="['radio', ($v.form.repasse.$error) ? 'is-danger' : '']" 
+                    <input :class="['radio', ($v.repasse.$error) ? 'is-danger' : '']" 
                     type="radio" 
                     value="2dias" 
-                    v-model="form.repasse">
+                    v-model="repasse">
                     2 dias
                 </label>
                 <label for="32dias" class="radio">
-                    <input :class="['radio', ($v.form.repasse.$error) ? 'is-danger' : '']" 
+                    <input :class="['radio', ($v.repasse.$error) ? 'is-danger' : '']" 
                     type="radio" 
                     value="32dias" 
-                    v-model="form.repasse">
+                    v-model="repasse">
                     32 dias
                 </label>
             </div>
-            <p v-if="$v.form.repasse.$error" class="help is-danger">Campo obrigatório</p>
+            <p v-if="$v.repasse.$error" class="help is-danger">Campo obrigatório</p>
         </div>
         <div class="columns">
             <div class="field column is-6">
                 <label class="label">Banco</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.banco.$error) ? 'is-danger' : '']" 
+                    <input :class="['input', ($v.banco.$error) ? 'is-danger' : '']" 
                     type="text" 
                     placeholder=""
-                    v-model="form.banco">
+                    v-model="banco">
                 </div>
-                <p v-if="$v.form.banco.$error" class="help is-danger">Campo obrigatório</p>
+                <p v-if="$v.banco.$error" class="help is-danger">Campo obrigatório</p>
             </div>
             <div class="field column is-6">
                 <label class="label">Tipo de Conta</label>
                 <div class="control">
                     <label class="radio">
-                        <input :class="['radio', ($v.form.tipoConta.$error) ? 'is-danger' : '']" 
+                        <input :class="['radio', ($v.tipoConta.$error) ? 'is-danger' : '']" 
                         type="radio" 
                         value="corrente" 
-                        v-model="form.tipoConta">
+                        v-model="tipoConta">
                         Conta Corrente
                     </label>
                     <label class="radio">
-                        <input :class="['radio', ($v.form.tipoConta.$error) ? 'is-danger' : '']" 
+                        <input :class="['radio', ($v.tipoConta.$error) ? 'is-danger' : '']" 
                         type="radio" 
                         value="poupanca" 
-                        v-model="form.tipoConta">
+                        v-model="tipoConta">
                         Conta Poupança
                     </label>
                 </div>
-                <p v-if="$v.form.tipoConta.$error" class="help is-danger">Campo obrigatório</p>
+                <p v-if="$v.tipoConta.$error" class="help is-danger">Campo obrigatório</p>
             </div>
         </div>
         <div class="columns">
             <div class="field column is-6">
                 <label class="label">Agência</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.agencia.$error) ? 'is-danger' : '']" 
+                    <input :class="['input', ($v.agencia.$error) ? 'is-danger' : '']" 
                     type="text" 
                     placeholder="" 
                     v-mask="['###-#', '####-#', '#####-#', '######-#']" 
-                    v-model="form.agencia">
+                    v-model="agencia">
                 </div>
-                <p v-if="$v.form.agencia.$error" class="help is-danger">Campo obrigatório</p>
+                <p v-if="$v.agencia.$error" class="help is-danger">Campo obrigatório</p>
             </div>
             <div class="field column is-6">
                 <label class="label">N. da Conta</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.conta.$error) ? 'is-danger' : '']" 
+                    <input :class="['input', ($v.conta.$error) ? 'is-danger' : '']" 
                     type="text" 
                     placeholder="" 
                     v-mask="['###-#', '####-#', '#####-#', '######-#']" 
-                    v-model="form.conta">
+                    v-model="conta">
                 </div>
-                <p v-if="$v.form.conta.$error" class="help is-danger">Campo obrigatório</p>
+                <p v-if="$v.conta.$error" class="help is-danger">Campo obrigatório</p>
             </div>
         </div>
         <div class="columns">
             <div class="field column is-6">
                 <label class="label">Titular</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.titular.$error) ? 'is-danger' : '']" 
+                    <input :class="['input', ($v.titular.$error) ? 'is-danger' : '']" 
                     type="text" 
                     placeholder=""
-                    v-model="form.titular">
+                    v-model="titular">
                 </div>
             </div>
             <div class="field column is-6">
                 <label class="label">CPF/CNPJ</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.cadastroTitular.$error) ? 'is-danger' : '']" 
+                    <input :class="['input', ($v.cadastroTitular.$error) ? 'is-danger' : '']" 
                     type="text" 
                     placeholder=""  
-                    v-model="form.cadastroTitular">
+                    v-model="cadastroTitular">
                 </div>
             </div>
         </div>
@@ -103,48 +103,49 @@
     import {validationMixin} from 'vuelidate'
     import {required, sameAs, email} from 'vuelidate/lib/validators'
     import {mask} from 'vue-the-mask'
+    import { store } from './../store/store'
+    import { mapFields } from 'vuex-map-fields'
 
     export default {
         directives: {mask},
         props: ['clickedNext', 'currentStep'],
         mixins: [validationMixin],
         data() {
-            return {
-                form: {
-                    repasse: '',
-                    banco: '',
-                    tipoConta: '',
-                    agencia: '',
-                    conta: '',
-                    titular: '',
-                    cadastroTitular: '',
-                }
-            }
+            return {}
+        },
+        computed: {
+            ...mapFields({
+              repasse: 'user.repasse',
+              banco: 'user.banco',
+              tipoConta: 'user.tipoConta',
+              agencia: 'user.agencia',
+              conta: 'user.conta',
+              titular: 'user.nomeCompleto',
+              cadastroTitular: 'user.cadastroTitular',
+            }),
         },
         validations: {
-            form: {
-                repasse: {
-                    required,
-                },
-                banco: {
-                    required,
-                },
-                tipoConta: {
-                    required,
-                },
-                agencia: {
-                    required,
-                },
-                conta: {
-                    required,
-                },
-                titular: {
-                    //required,
-                },
-                cadastroTitular: {
-                    //required,
-                },
-            }
+            repasse: {
+                required,
+            },
+            banco: {
+                required,
+            },
+            tipoConta: {
+                required,
+            },
+            agencia: {
+                required,
+            },
+            conta: {
+                required,
+            },
+            titular: {
+                //required,
+            },
+            cadastroTitular: {
+                //required,
+            },
         },
         watch: {
             $v: {
@@ -163,7 +164,7 @@
             clickedNext(val) {
                 console.log(val);
                 if(val === true) {
-                    this.$v.form.$touch();
+                    this.$v.$touch();
                 }
             }
         },
