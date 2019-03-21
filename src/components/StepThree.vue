@@ -71,6 +71,26 @@
                 </div>
             </div>
         </div>
+        <div class="columns">
+            <div class="field column is-6">
+                <label class="label">Titular</label>
+                <div class="control">
+                    <input :class="['input', ($v.form.titular.$error) ? 'is-danger' : '']" 
+                    type="text" 
+                    placeholder=""
+                    v-model="form.titular">
+                </div>
+            </div>
+            <div class="field column is-6">
+                <label class="label">CPF/CNPJ</label>
+                <div class="control">
+                    <input :class="['input', ($v.form.cadastroTitular.$error) ? 'is-danger' : '']" 
+                    type="text" 
+                    placeholder=""  
+                    v-model="form.cadastroTitular">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -91,6 +111,8 @@
                     tipoConta: '',
                     agencia: '',
                     conta: '',
+                    titular: '',
+                    cadastroTitular: '',
                 }
             }
         },
@@ -109,6 +131,12 @@
                     //required,
                 },
                 conta: {
+                    //required,
+                },
+                titular: {
+                    //required,
+                },
+                cadastroTitular: {
                     //required,
                 },
             }

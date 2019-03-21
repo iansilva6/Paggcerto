@@ -111,7 +111,7 @@
                     <label class="label">Número</label>
                     <div class="control">
                         <input :class="['input', ($v.form.numero.$error) ? 'is-danger' : '']" 
-                        type="number" 
+                        type="text" 
                         placeholder="" 
                         v-model="form.numero">
                     </div>
@@ -217,7 +217,7 @@
                     <label class="label">Número</label>
                     <div class="control">
                         <input :class="['input', ($v.form.numero.$error) ? 'is-danger' : '']" 
-                        type="number" 
+                        type="text" 
                         placeholder="" 
                         v-model="form.numero">
                     </div>

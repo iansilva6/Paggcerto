@@ -8,6 +8,7 @@
                 placeholder=""
                 v-model="form.comoConheceu">
             </div>
+            <p v-if="$v.form.comoConheceu.$error" class="help is-danger">Campo obrigatório</p>
         </div>
         <div class="field">
             <label class="label">Email</label>
@@ -37,6 +38,7 @@
                 placeholder="" 
                 v-model.lazy="form.senha">
             </div>
+            <p v-if="$v.form.senha.$error" class="help is-danger">Campo obrigatório</p>
         </div>
     </div>
 </template>
