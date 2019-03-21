@@ -8,17 +8,27 @@
 			  </div>
         </div>
         <footer class="card-footer">
-            <a class="card-footer-item" @click="canContinue">Aceito e Concordo com os Termos de Uso</a>
+            <div class="card-footer-item"><input id="switch" type="checkbox" name="switchExample" class="switch" ref="rolesSelected" @click="canContinue"> Li e Aceito os Termos de Uso</div>
         </footer>
     </div>
 </template>
+
+<style type="text/css">
+    #switch {
+        margin-right: 10px;
+    }
+</style>
 
 <script>
     export default {
         props: ['currentStep'],
         methods: {
           canContinue() {
-              this.$emit('can-continue', {value: true});
+            if(this.$refs.rolesSelected.checked == true) {
+                this.$emit('can-continue', {value: true});
+            } else {
+                this.$emit('can-continue', {value: false});
+            }
           }
         },
         mounted() {

@@ -3,35 +3,47 @@
         <div class="field">
             <label class="label">Quantos dias você deseja receber o repasse?</label>
             <div class="control">
-                <p>
-                    <label class="radio">
-                        <input :class="['radio', ($v.form.doisdias.$error) ? 'is-danger' : '']" type="radio" name="repasse" v-model="doisdias">
-                        2 dias
-                    </label>
-                    <label class="radio">
-                        <input :class="['radio', ($v.form.trintaedoisdias.$error) ? 'is-danger' : '']" type="radio" name="repasse" v-model="trintaedoisdias">
-                        32 dias
-                    </label>
-                </p>
+                <label for="2dias" class="radio">
+                    <input :class="['radio', ($v.form.repasse.$error) ? 'is-danger' : '']" 
+                    type="radio" 
+                    value="2dias" 
+                    v-model="form.repasse">
+                    2 dias
+                </label>
+                <label for="32dias" class="radio">
+                    <input :class="['radio', ($v.form.repasse.$error) ? 'is-danger' : '']" 
+                    type="radio" 
+                    value="32dias" 
+                    v-model="form.repasse">
+                    32 dias
+                </label>
             </div>
         </div>
         <div class="columns">
             <div class="field column is-6">
                 <label class="label">Banco</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.banco.$error) ? 'is-danger' : '']" type="text" placeholder=""
-                       v-model="form.banco">
+                    <input :class="['input', ($v.form.banco.$error) ? 'is-danger' : '']" 
+                    type="text" 
+                    placeholder=""
+                    v-model="form.banco">
                 </div>
             </div>
             <div class="field column is-6">
                 <label class="label">Tipo de Conta</label>
                 <div class="control">
                     <label class="radio">
-                        <input :class="['radio', ($v.form.corrente.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="corrente">
+                        <input :class="['radio', ($v.form.tipoConta.$error) ? 'is-danger' : '']" 
+                        type="radio" 
+                        value="corrente" 
+                        v-model="form.tipoConta">
                         Conta Corrente
                     </label>
                     <label class="radio">
-                        <input :class="['radio', ($v.form.poupanca.$error) ? 'is-danger' : '']" type="radio" name="sexo" v-model="poupanca">
+                        <input :class="['radio', ($v.form.tipoConta.$error) ? 'is-danger' : '']" 
+                        type="radio" 
+                        value="poupanca" 
+                        v-model="form.tipoConta">
                         Conta Poupança
                     </label>
                 </div>
@@ -41,13 +53,21 @@
             <div class="field column is-6">
                 <label class="label">Agência</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.agencia.$error) ? 'is-danger' : '']" type="text" placeholder="" v-mask="['###-#', '####-#', '#####-#', '######-#']" v-model="form.agencia">
+                    <input :class="['input', ($v.form.agencia.$error) ? 'is-danger' : '']" 
+                    type="text" 
+                    placeholder="" 
+                    v-mask="['###-#', '####-#', '#####-#', '######-#']" 
+                    v-model="form.agencia">
                 </div>
             </div>
             <div class="field column is-6">
                 <label class="label">N. da Conta</label>
                 <div class="control">
-                    <input :class="['input', ($v.form.conta.$error) ? 'is-danger' : '']" type="text" placeholder="" v-mask="['###-#', '####-#', '#####-#', '######-#']" v-model="form.conta">
+                    <input :class="['input', ($v.form.conta.$error) ? 'is-danger' : '']" 
+                    type="text" 
+                    placeholder="" 
+                    v-mask="['###-#', '####-#', '#####-#', '######-#']" 
+                    v-model="form.conta">
                 </div>
             </div>
         </div>
@@ -66,11 +86,9 @@
         data() {
             return {
                 form: {
-                    doisdias: '',
-                    trintadias: '',
+                    repasse: '',
                     banco: '',
-                    corrente: '',
-                    poupanca: '',
+                    tipoConta: '',
                     agencia: '',
                     conta: '',
                 }
@@ -78,19 +96,13 @@
         },
         validations: {
             form: {
-                doisdias: {
-                    //required,
-                },
-                trintaedoisdias: {
+                repasse: {
                     //required,
                 },
                 banco: {
                     //required,
                 },
-                corrente: {
-                    //required,
-                },
-                poupanca: {
+                tipoConta: {
                     //required,
                 },
                 agencia: {

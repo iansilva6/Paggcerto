@@ -3,28 +3,39 @@
         <div class="field">
             <label class="label">Como Conheceu a Paggcerto?</label>
             <div class="control">
-                <input :class="['input', ($v.form.comoConheceu.$error) ? 'is-danger' : '']" type="text" placeholder=""
-                       v-model="form.comoConheceu">
+                <input :class="['input', ($v.form.comoConheceu.$error) ? 'is-danger' : '']" 
+                type="text" 
+                placeholder=""
+                v-model="form.comoConheceu">
             </div>
         </div>
         <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input :class="['input', ($v.form.email.$error) ? 'is-danger' : '']"  type="text" placeholder="" v-model="form.email">
+                <input :class="['input', ($v.form.email.$error) ? 'is-danger' : '']"  
+                type="text" 
+                placeholder="" 
+                v-model="form.email">
             </div>
             <p v-if="$v.form.email.$error" class="help is-danger">Seu endereço de e-mail é inválido</p>
         </div>
         <div class="field">
             <label class="label">Confirme seu E-mail</label>
             <div class="control">
-                <input :class="['input', ($v.form.demoEmail.$error) ? 'is-danger' : '']"  type="text" placeholder="" v-model="form.demoEmail">
+                <input :class="['input', ($v.form.demoEmail.$error) ? 'is-danger' : '']"  
+                type="text" 
+                placeholder="" 
+                v-model="form.demoEmail">
             </div>
             <p v-if="$v.form.demoEmail.$error" class="help is-danger">Seus endereços de e-mail estão diferentes</p>
         </div>
         <div class="field">
             <label class="label">Senha</label>
             <div class="control">
-                <input :class="['input', ($v.form.senha.$error) ? 'is-danger' : '']"  type="text" placeholder="" v-model="form.senha">
+                <input :class="['input', ($v.form.senha.$error) ? 'is-danger' : '']"  
+                type="text" 
+                placeholder="" 
+                v-model.lazy="form.senha">
             </div>
         </div>
     </div>
